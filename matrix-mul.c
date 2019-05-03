@@ -13,7 +13,12 @@ int main() {
     scanf("%d %d %d", &a[i][0], &a[i][1], &a[i][2]);
   }
 
+  for (i=0; i<3; i++) {
+    scanf("%d %d %d", &b[i][0], &b[i][1], &b[i][2]);
+  }
+
   print_matrix(a);
+  print_matrix(b);
 
   return 0;
 }
@@ -27,4 +32,6 @@ void print_matrix(int matrix[3][3]) {
     }
     printf("\n");
   }
+
+  printf("\n");
 }
