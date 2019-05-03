@@ -1,29 +1,49 @@
 #include <stdio.h>
 
-// void matrix_multiplication(int result[][3], int a[][3], int b[][3]);
-void print_matrix(int matrix[3][3]);
-
+void scan_matrix(int matrix[][3]);
+void matrix_multiplication(int result[][3], int a[][3], int b[][3]);
+void print_matrix(int matrix[][3]);
 
 int main() {
   int a[3][3];
   int b[3][3];
-  int i;
+  int result[3][3];
 
-  for (i=0; i<3; i++) {
-    scanf("%d %d %d", &a[i][0], &a[i][1], &a[i][2]);
-  }
+  scan_matrix(a);
+  scan_matrix(b);
 
-  for (i=0; i<3; i++) {
-    scanf("%d %d %d", &b[i][0], &b[i][1], &b[i][2]);
-  }
+  matrix_multiplication(result, a, b);
 
-  print_matrix(a);
-  print_matrix(b);
+  print_matrix(result);
 
   return 0;
 }
 
-void print_matrix(int matrix[3][3]) {
+void scan_matrix(int matrix[][3]) {
+  int i;
+
+  for (i=0; i<3; i++) {
+    scanf("%d %d %d", &matrix[i][0], &matrix[i][1], &matrix[i][2]);
+  }
+}
+
+
+void matrix_multiplication(int result[][3], int a[][3], int b[][3]) {
+  int i, j, k;
+  int sum = 0;
+
+  for (i=0; i<3; i++) {
+    for (j=0; j<3; j++) {
+      for (k=0; k<3; k++) {
+        sum += a[i][k] * b[k][j];
+      }
+    result[i][j] = sum;
+    sum = 0;
+    }
+  }
+}
+
+void print_matrix(int matrix[][3]) {
   int i, j;
 
   for (i=0; i<3; i++) {
@@ -32,6 +52,4 @@ void print_matrix(int matrix[3][3]) {
     }
     printf("\n");
   }
-
-  printf("\n");
 }
