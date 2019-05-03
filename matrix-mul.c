@@ -1,8 +1,30 @@
 #include <stdio.h>
 
-int main() {
+// void matrix_multiplication(int result[][3], int a[][3], int b[][3]);
+void print_matrix(int matrix[3][3]);
 
-  printf("Hello World!");
+
+int main() {
+  int a[3][3];
+  int b[3][3];
+  int i;
+
+  for (i=0; i<3; i++) {
+    scanf("%d %d %d", &a[i][0], &a[i][1], &a[i][2]);
+  }
+
+  print_matrix(a);
 
   return 0;
+}
+
+void print_matrix(int matrix[3][3]) {
+  int i, j;
+
+  for (i=0; i<3; i++) {
+    for (j=0; j<3; j++) {
+      printf("%d\t", matrix[i][j]);
+    }
+    printf("\n");
+  }
 }
